@@ -1,0 +1,124 @@
+Descripción detallada del proyecto
+Este proyecto es un “Habit Tracker” o rastreador de hábitos desarrollado en Python con una interfaz de consola.
+Su objetivo principal es ayudar al usuario a crear, gestionar y completar hábitos, recompensándolo con puntos que luego puede canjear por premios.
+
+Está diseñado con un enfoque gamificado, es decir, que motiva al usuario a cumplir sus metas mediante un sistema de recompensas.
+
+Estructura principal del proyecto
+El código está organizado en tres clases principales y una función main() que actúa como la interfaz con el usuario.
+
+1. Clase Puntos
+Esta clase se encarga de gestionar el puntaje del usuario.
+
+Atributos:
+
+self.total: Guarda el total de puntos acumulados.
+
+Métodos:
+
+agregar_puntos():
+Asigna una cantidad aleatoria de puntos entre 100 y 500 y los suma al total.
+
+gastar_puntos(cantidad):
+Resta puntos si el usuario tiene suficientes; devuelve True si la transacción fue exitosa, False si no.
+
+obtener_puntos():
+Devuelve el total actual de puntos.
+
+🔹 Función en el sistema: Premia al usuario cuando completa hábitos y permite gastar puntos para obtener recompensas.
+
+2. Clase Recompensa
+Gestiona las recompensas disponibles que el usuario puede comprar con sus puntos.
+
+Atributos:
+
+self.recompensas: Lista donde se almacenan todas las recompensas creadas.
+
+self.proximo_id: Lleva el control del ID único para cada recompensa.
+
+Métodos:
+
+agregar_recompensa(nombre, costo):
+Crea y guarda una nueva recompensa con un nombre y un costo en puntos.
+
+mostrar_recompensas():
+Lista todas las recompensas disponibles con su ID, nombre y costo.
+
+canjear(recompensa_id, puntos):
+Permite al usuario gastar puntos para obtener una recompensa, siempre que tenga saldo suficiente.
+
+🔹 Función en el sistema: Motiva al usuario a cumplir hábitos para poder canjear premios.
+
+3. Clase Persona
+Representa al usuario y almacena toda su información: hábitos, puntos y recompensas.
+
+Atributos:
+
+self.nombre: Nombre del usuario.
+
+self.habitos: Lista que guarda los hábitos registrados.
+
+self.recompensas: Objeto de la clase Recompensa asociado a esta persona.
+
+self.puntos: Objeto de la clase Puntos para gestionar el puntaje.
+
+self.proximo_id: Controla el ID único de cada hábito.
+
+Métodos:
+
+agregar_habito(nombre, frecuencia):
+Registra un nuevo hábito con su frecuencia (por ejemplo, diario o semanal).
+
+eliminar_habito(habito_id):
+Borra un hábito por su ID.
+
+editar_habito(habito_id, nuevo_nombre, nueva_frecuencia):
+Permite cambiar el nombre y la frecuencia de un hábito ya existente.
+
+completar_habito(habito_id):
+Marca un hábito como completado, otorga puntos y evita que se vuelva a marcar.
+
+mostrar_habitos():
+Lista todos los hábitos con su estado (completado o no) y muestra los puntos totales.
+
+🔹 Función en el sistema: Sirve como núcleo que une los hábitos, el puntaje y las recompensas de cada usuario.
+
+4. Función main() – Interfaz de consola
+Es el menú interactivo que permite al usuario navegar por todas las funciones.
+
+Opciones disponibles:
+
+Ver hábitos registrados.
+
+Agregar un nuevo hábito.
+
+Eliminar un hábito.
+
+Editar un hábito.
+
+Marcar un hábito como completado (y ganar puntos).
+
+Ver recompensas disponibles.
+
+Agregar una nueva recompensa.
+
+Canjear una recompensa.
+
+Salir del programa.
+
+🔹 Funcionamiento:
+El programa pide el nombre del usuario, crea un objeto Persona y entra en un bucle donde el usuario elige opciones para gestionar sus hábitos y recompensas.
+
+Flujo de uso típico
+El usuario abre el programa y escribe su nombre.
+
+Empieza agregando hábitos (por ejemplo: “Leer 30 minutos”, frecuencia diaria).
+
+Cuando completa un hábito, lo marca como hecho y gana puntos aleatorios (100-500).
+
+Con los puntos acumulados, revisa la lista de recompensas disponibles.
+
+Si tiene suficientes puntos, canjea una recompensa.
+
+El ciclo se repite, motivando a cumplir hábitos para obtener premios.
+
